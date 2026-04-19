@@ -225,7 +225,7 @@ a {
 .overview-copy h1,
 .research-intro h2,
 .software-intro h2,
-.topic-layout h3,
+.topic-copy h3,
 .software-row h3 {
   margin: 0;
   font-family: "Baskerville", "Iowan Old Style", "Palatino Linotype", serif;
@@ -466,20 +466,32 @@ a {
   padding-top: 0.4rem;
 }
 
-.topic-layout {
+.topic-flow {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.82fr);
-  gap: 2.2rem;
+  gap: 1.4rem;
+  max-width: 64rem;
 }
 
-.topic-layout h3 {
+.topic-copy {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.topic-copy h3 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   line-height: 1.04;
 }
 
-.topic-side {
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--line);
+.topic-copy .body-copy {
+  margin: 0;
+}
+
+.topic-papers {
+  max-width: 100%;
+}
+
+.topic-papers .mini-label {
+  margin-bottom: 0.35rem;
 }
 
 .software-list {
@@ -527,13 +539,11 @@ a {
   }
 
   .overview-hero,
-  .overview-columns,
-  .topic-layout {
+  .overview-columns {
     grid-template-columns: 1fr;
   }
 
-  .portrait-wrap,
-  .topic-side {
+  .portrait-wrap {
     padding-left: 0;
     border-left: 0;
     border-top: 1px solid var(--line);

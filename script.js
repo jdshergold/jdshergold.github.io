@@ -3,9 +3,18 @@ document.documentElement.classList.add("has-tabs");
 const tabShells = document.querySelectorAll("[data-tabs]");
 
 for (const shell of tabShells) {
-  const tabs = Array.from(shell.querySelectorAll("[role='tab']"));
+  const tabs = Array.from(shell.querySelectorAll("[role='tab']")).filter((tab) => {
+    const panelId = tab.getAttribute("aria-controls");
+    const panel = panelId ? document.getElementById(panelId) : null;
+    return panel && panel.closest("[data-tabs]") === shell;
+  });
+
+  if (!tabs.length) {
+    continue;
+  }
+
   const panels = tabs.map((tab) =>
-    shell.querySelector(`#${tab.getAttribute("aria-controls")}`)
+    document.getElementById(tab.getAttribute("aria-controls"))
   );
 
   const activateTab = (nextTab, options = {}) => {
@@ -16,7 +25,9 @@ for (const shell of tabShells) {
       tab.classList.toggle("is-active", selected);
       tab.setAttribute("aria-selected", String(selected));
       tab.tabIndex = selected ? 0 : -1;
-      panels[index].hidden = !selected;
+      if (panels[index]) {
+        panels[index].hidden = !selected;
+      }
     });
 
     if (focus) {
@@ -24,7 +35,10 @@ for (const shell of tabShells) {
     }
   };
 
-  activateTab(tabs[0]);
+  const initialTab =
+    tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0];
+
+  activateTab(initialTab);
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => activateTab(tab, { focus: true }));
