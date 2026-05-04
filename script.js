@@ -67,6 +67,42 @@ for (const shell of tabShells) {
 
 const tabLinks = document.querySelectorAll("[data-open-tab]");
 const tabActivators = document.querySelectorAll("[data-activate-tab]");
+const mobileNav = document.querySelector(".site-nav");
+const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+const mobileNavPanel = document.querySelector(".mobile-nav-panel");
+
+const closeMobileMenu = () => {
+  if (!mobileNav || !mobileNavToggle) {
+    return;
+  }
+
+  mobileNav.classList.remove("mobile-menu-open");
+  mobileNavToggle.setAttribute("aria-expanded", "false");
+};
+
+if (mobileNav && mobileNavToggle && mobileNavPanel) {
+  mobileNavToggle.addEventListener("click", () => {
+    const nextOpen = !mobileNav.classList.contains("mobile-menu-open");
+    mobileNav.classList.toggle("mobile-menu-open", nextOpen);
+    mobileNavToggle.setAttribute("aria-expanded", String(nextOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mobileNav.classList.contains("mobile-menu-open") &&
+      event.target instanceof Node &&
+      !mobileNav.contains(event.target)
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
+      closeMobileMenu();
+    }
+  });
+}
 
 for (const link of tabLinks) {
   link.addEventListener("click", (event) => {
@@ -79,6 +115,7 @@ for (const link of tabLinks) {
 
     event.preventDefault();
     targetTab.click();
+    closeMobileMenu();
 
     const panelId = targetTab.getAttribute("aria-controls");
     const panel = document.getElementById(panelId);
@@ -96,9 +133,16 @@ for (const control of tabActivators) {
 
     if (targetTab) {
       targetTab.click();
+      closeMobileMenu();
     }
   });
 }
+
+document.querySelectorAll(".mobile-nav-panel a, .mobile-nav-panel button[role='tab']").forEach((item) => {
+  item.addEventListener("click", () => {
+    closeMobileMenu();
+  });
+});
 
 const yyzSequence = "yyz";
 let yyzBuffer = "";

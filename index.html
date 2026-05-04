@@ -29,74 +29,86 @@
               </p>
             </div>
 
-            <div
-              class="tab-list tab-list-main"
-              role="tablist"
-              aria-label="Main site pages"
+            <button
+              class="mobile-nav-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-nav-panel"
+              aria-label="Open site menu"
             >
-              <button
-                class="tab-button is-active"
-                id="tab-page-overview"
-                type="button"
-                role="tab"
-                aria-selected="true"
-                aria-controls="panel-overview"
-                data-tab="page-overview"
-              >
-                About Me
-              </button>
-              <button
-                class="tab-button"
-                id="tab-page-research"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-research"
-                data-tab="page-research"
-                tabindex="-1"
-              >
-                Research
-              </button>
-              <button
-                class="tab-button"
-                id="tab-page-software"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-software"
-                data-tab="page-software"
-                tabindex="-1"
-              >
-                Software
-              </button>
-              <button
-                class="tab-button"
-                id="tab-page-teaching"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-teaching"
-                data-tab="page-teaching"
-                tabindex="-1"
-              >
-                Teaching and Outreach
-              </button>
-            </div>
+              Menu
+            </button>
 
-            <div class="utility-links">
-              <a href="mailto:shergold@liverpool.ac.uk" target="_blank" rel="noreferrer">Email</a>
-              <a
-                href="https://orcid.org/0000-0001-5685-9007"
-                target="_blank"
-                rel="noreferrer"
-                >ORCID</a
+            <div class="mobile-nav-panel" id="mobile-nav-panel">
+              <div
+                class="tab-list tab-list-main"
+                role="tablist"
+                aria-label="Main site pages"
               >
-              <a
-                href="https://inspirehep.net/authors/1862232?ui-citation-summary=true&ui-exclude-self-citations=true"
-                target="_blank"
-                rel="noreferrer"
-                >INSPIRE</a
-              >
+                <button
+                  class="tab-button is-active"
+                  id="tab-page-overview"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-overview"
+                  data-tab="page-overview"
+                >
+                  About Me
+                </button>
+                <button
+                  class="tab-button"
+                  id="tab-page-research"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-research"
+                  data-tab="page-research"
+                  tabindex="-1"
+                >
+                  Research
+                </button>
+                <button
+                  class="tab-button"
+                  id="tab-page-software"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-software"
+                  data-tab="page-software"
+                  tabindex="-1"
+                >
+                  Software
+                </button>
+                <button
+                  class="tab-button"
+                  id="tab-page-teaching"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-teaching"
+                  data-tab="page-teaching"
+                  tabindex="-1"
+                >
+                  Teaching and Outreach
+                </button>
+              </div>
+
+              <div class="utility-links">
+                <a href="mailto:shergold@liverpool.ac.uk" target="_blank" rel="noreferrer">Email</a>
+                <a
+                  href="https://orcid.org/0000-0001-5685-9007"
+                  target="_blank"
+                  rel="noreferrer"
+                  >ORCID</a
+                >
+                <a
+                  href="https://inspirehep.net/authors/1862232?ui-citation-summary=true&ui-exclude-self-citations=true"
+                  target="_blank"
+                  rel="noreferrer"
+                  >INSPIRE</a
+                >
+              </div>
             </div>
           </div>
         </header>
