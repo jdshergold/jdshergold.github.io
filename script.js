@@ -41,7 +41,7 @@ for (const shell of tabShells) {
   activateTab(initialTab);
 
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => activateTab(tab, { focus: true }));
+    tab.addEventListener("click", () => activateTab(tab));
 
     tab.addEventListener("keydown", (event) => {
       const currentIndex = tabs.indexOf(tab);
@@ -66,6 +66,7 @@ for (const shell of tabShells) {
 }
 
 const tabLinks = document.querySelectorAll("[data-open-tab]");
+const tabActivators = document.querySelectorAll("[data-activate-tab]");
 
 for (const link of tabLinks) {
   link.addEventListener("click", (event) => {
@@ -87,3 +88,153 @@ for (const link of tabLinks) {
     }
   });
 }
+
+for (const control of tabActivators) {
+  control.addEventListener("click", () => {
+    const targetName = control.dataset.activateTab;
+    const targetTab = document.querySelector(`[data-tab="${targetName}"]`);
+
+    if (targetTab) {
+      targetTab.click();
+    }
+  });
+}
+
+const yyzSequence = "yyz";
+let yyzBuffer = "";
+let yyzTimer = null;
+const yyzPhrase = [
+  "dash",
+  "dot",
+  "dash",
+  "dash",
+  "dash",
+  "dot",
+  "dash",
+  "dash",
+  "dash",
+  "dash",
+  "dot",
+  "dot",
+];
+const yyzBpm = 107;
+const yyzQuarter = 60 / yyzBpm;
+const yyzDurations = {
+  dash: yyzQuarter / 2,
+  dot: yyzQuarter / 4,
+};
+
+const yyzUiTimers = [];
+let yyzIntroTemplate = null;
+
+const clearYyzFlashTimers = () => {
+  while (yyzUiTimers.length) {
+    window.clearTimeout(yyzUiTimers.pop());
+  }
+  document.body.classList.remove("yyz-flash");
+};
+
+const getYyzPulses = () => {
+  let elapsed = 0;
+  const pulses = [];
+
+  const appendSymbol = (symbol) => {
+    const duration = yyzDurations[symbol];
+    pulses.push({ start: elapsed, duration, symbol });
+    elapsed += duration;
+  };
+
+  yyzPhrase.forEach(appendSymbol);
+  yyzPhrase.forEach(appendSymbol);
+
+  return pulses;
+};
+
+const getYyzIntroTemplate = () => {
+  if (!yyzIntroTemplate) {
+    yyzIntroTemplate = new Audio("assets/audio/yyz_intro.wav");
+    yyzIntroTemplate.preload = "auto";
+  }
+
+  return yyzIntroTemplate;
+};
+
+const playYyzIntro = () => {
+  const template = getYyzIntroTemplate();
+  const player = new Audio(template.currentSrc || template.src || "assets/audio/yyz_intro.wav");
+  player.preload = "auto";
+  player.volume = 0.9;
+  player.currentTime = 0;
+
+  const cleanup = () => {
+    player.removeEventListener("ended", cleanup);
+    player.removeEventListener("pause", cleanup);
+  };
+
+  player.addEventListener("ended", cleanup);
+  player.addEventListener("pause", cleanup);
+
+  return player.play();
+};
+
+const flashYyz = (pulses, startDelay = 0) => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  clearYyzFlashTimers();
+
+  pulses.forEach((pulse) => {
+    yyzUiTimers.push(
+      window.setTimeout(() => {
+        document.body.classList.add("yyz-flash");
+      }, startDelay + Math.round(pulse.start * 1000))
+    );
+
+    yyzUiTimers.push(
+      window.setTimeout(() => {
+        document.body.classList.remove("yyz-flash");
+      }, startDelay + Math.round((pulse.start + pulse.duration) * 1000))
+    );
+  });
+};
+
+const triggerYyz = async () => {
+  const pulses = getYyzPulses();
+  flashYyz(pulses, 0);
+  await playYyzIntro();
+};
+
+window.addEventListener("keydown", (event) => {
+  if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) {
+    return;
+  }
+
+  const target = event.target;
+  if (
+    target instanceof HTMLElement &&
+    (target.isContentEditable ||
+      target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.tagName === "SELECT")
+  ) {
+    return;
+  }
+
+  if (event.key.length !== 1 || !/[a-z]/i.test(event.key)) {
+    return;
+  }
+
+  yyzBuffer = `${yyzBuffer}${event.key.toLowerCase()}`.slice(-yyzSequence.length);
+  window.clearTimeout(yyzTimer);
+  yyzTimer = window.setTimeout(() => {
+    yyzBuffer = "";
+  }, 1500);
+
+  if (yyzBuffer === yyzSequence) {
+    yyzBuffer = "";
+    void triggerYyz().catch((error) => {
+      console.error("YYZ easter egg failed:", error);
+    });
+  }
+});

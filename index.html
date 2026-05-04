@@ -23,7 +23,10 @@
                 data-open-tab="page-overview"
                 >Jack D. Shergold</a
               >
-              <p class="brand-subline">Astroparticle phenomenology · Liverpool</p>
+              <p class="brand-subline">
+                <span>Astroparticle phenomenology</span>
+                <span>University of Liverpool</span>
+              </p>
             </div>
 
             <div
@@ -40,7 +43,7 @@
                 aria-controls="panel-overview"
                 data-tab="page-overview"
               >
-                Overview
+                About Me
               </button>
               <button
                 class="tab-button"
@@ -66,10 +69,22 @@
               >
                 Software
               </button>
+              <button
+                class="tab-button"
+                id="tab-page-teaching"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-teaching"
+                data-tab="page-teaching"
+                tabindex="-1"
+              >
+                Teaching and Outreach
+              </button>
             </div>
 
             <div class="utility-links">
-              <a href="mailto:shergold@liverpool.ac.uk">Email</a>
+              <a href="mailto:shergold@liverpool.ac.uk" target="_blank" rel="noreferrer">Email</a>
               <a
                 href="https://orcid.org/0000-0001-5685-9007"
                 target="_blank"
@@ -96,19 +111,25 @@
           >
             <section class="overview-hero">
               <div class="overview-copy">
-                <p class="kicker">Astroparticle theory</p>
-                <h1>Dark matter, relic neutrinos, and low-energy particle phenomenology.</h1>
-                <p class="lede">
-                  I am a postdoctoral researcher in the Department of
+                <h1>About Me</h1>
+                <p class="lede overview-paragraph">
+                  Welcome to my website! I'm a postdoctoral researcher in the Department of
                   Mathematical Sciences at the University of Liverpool. My work
-                  spans relic neutrino searches, the use of atoms and molecules
+                  focuses on relic neutrino searches, the use of atoms and molecules
                   as light dark matter detectors, and broader dark matter and
                   neutrino phenomenology.
+                </p>
+                <p class="body-copy overview-paragraph">
+                  I completed my PhD at Durham University under
+                  the supervision of Martin Bauer, working on the cosmic neutrino background. After spending two years overheating as a postdoc in Valencia, I came to Liverpool to work on novel dark matter detectors.
+                </p>
+                <p class="body-copy overview-paragraph">
+                  Take a look around. Here you'll find details of my research, software, and teaching activities, along with links to my papers and profiles. If you have any questions or want to chat about physics, feel free to reach out!
                 </p>
 
                 <div class="action-row">
                   <a
-                    class="text-link text-link-strong"
+                    class="text-link"
                     href="#panel-research"
                     data-open-tab="page-research"
                     >Research areas</a
@@ -121,6 +142,12 @@
                   >
                   <a
                     class="text-link"
+                    href="#panel-teaching"
+                    data-open-tab="page-teaching"
+                    >Teaching and outreach</a
+                  >
+                  <a
+                    class="text-link"
                     href="https://inspirehep.net/authors/1862232?ui-citation-summary=true&ui-exclude-self-citations=true"
                     target="_blank"
                     rel="noreferrer"
@@ -130,10 +157,10 @@
               </div>
 
               <figure class="portrait-wrap">
-                <img src="me.jpeg" alt="Portrait of Jack D. Shergold" />
+                <img src="assets/images/me.jpeg" alt="Portrait of Jack D. Shergold" />
                 <figcaption>
-                  Based in Liverpool and working across theory, phenomenology,
-                  cosmology, and experiment-facing questions.
+                  Usually thinking about physics, listening to Rush, and
+                  conducting serious research into where to eat next. Sometimes up in the hills.
                 </figcaption>
               </figure>
             </section>
@@ -147,19 +174,9 @@
             aria-labelledby="tab-page-research"
             data-tab-panel="page-research"
           >
-            <section class="research-intro">
-              <p class="kicker">Research</p>
-              <h2>Three active strands</h2>
-              <p class="body-copy">
-                These categories overlap, and I still actively work on all
-                three. They are a useful way to organise the current programme
-                rather than strict divisions.
-              </p>
-            </section>
-
             <section class="nested-tabs" data-tabs>
               <div
-                class="tab-list tab-list-sub"
+                class="tab-list tab-list-sub visually-hidden"
                 role="tablist"
                 aria-label="Research categories"
               >
@@ -209,12 +226,25 @@
                   data-tab-panel="topic-relic"
                 >
                   <figure class="topic-banner topic-banner-relic">
-                    <div class="topic-banner-copy">
-                      <span class="slot-label">Relic neutrino searches</span>
-                      <p>
-                        Cosmic neutrino background searches, coherent
-                        scattering, and the question of realistic detectability.
-                      </p>
+                    <div class="topic-banner-nav">
+                      <button
+                        class="topic-switch topic-switch-prev"
+                        type="button"
+                        data-activate-tab="topic-pheno"
+                        aria-label="Show dark matter and neutrino phenomenology"
+                      >
+                        <span class="topic-switch-arrow">&lt;</span>
+                        <span class="topic-switch-text">DM and neutrino pheno</span>
+                      </button>
+                      <button
+                        class="topic-switch topic-switch-next"
+                        type="button"
+                        data-activate-tab="topic-atoms"
+                        aria-label="Show atoms and molecules research"
+                      >
+                        <span class="topic-switch-text">Atoms and molecules</span>
+                        <span class="topic-switch-arrow">&gt;</span>
+                      </button>
                     </div>
                   </figure>
 
@@ -222,15 +252,13 @@
                     <div class="topic-copy">
                       <h3>Relic neutrino searches</h3>
                       <p class="body-copy">
-                        This strand focuses on how the cosmic neutrino
-                        background might be probed in realistic experiments,
-                        including coherent scattering and accelerator-based
-                        ideas.
+                        The ΛCDM model has successfully explained the measured primordial element abundances, the large scale structure of the universe, and the presence of the cosmic microwave background. Despite these successes, many questions remain. Notably, one firm prediction of the model, the cosmic neutrino background, remains elusive.
                       </p>
                       <p class="body-copy">
-                        The central aim is to understand where genuine
-                        detectability might emerge once the particle physics and
-                        experimental scales are treated carefully.
+                        One key area of my research focuses on how we might detect the cosmic neutrino background. Due to the incredibly low energy of relic neutrinos, the detection techniques applied to higher energy neutrinos have no chance of seeing anything. Detecting relic neutrinos therefore requires a complete paradigm shift!
+                      </p>
+                      <p class="body-copy">
+                        Below you will find some of the work I've done in this area.
                       </p>
                     </div>
 
@@ -238,44 +266,122 @@
                       <p class="mini-label">Papers</p>
                       <ul class="clean-list">
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2207.12413"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Limits on the cosmic neutrino background</a
-                          >
-                          <span class="clean-meta">JCAP · 2023</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Cosmic neutrino background detection in the
+                              minimally extended Standard Model</span
+                            >
+                            <span class="clean-authors"
+                              >Yuber F. Perez-Gonzalez, Jack D. Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2410.11941"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1088/1475-7516/2025/08/033"
+                              target="_blank"
+                              rel="noreferrer"
+                              >JCAP</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2025</span>
+                          </span>
                         </li>
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2109.07482"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Updated detection prospects for relic neutrinos using coherent scattering</a
-                          >
-                          <span class="clean-meta">JCAP · 2021</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Limits on the cosmic neutrino background</span
+                            >
+                            <span class="clean-authors"
+                              >Martin Bauer, Jack D. Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2207.12413"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1088/1475-7516/2023/01/003"
+                              target="_blank"
+                              rel="noreferrer"
+                              >JCAP</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2023</span>
+                          </span>
                         </li>
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2104.12784"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Relic neutrinos at accelerator experiments</a
-                          >
-                          <span class="clean-meta">Phys. Rev. D · 2021</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Updated detection prospects for relic neutrinos
+                              using coherent scattering</span
+                            >
+                            <span class="clean-authors"
+                              >Jack D. Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2109.07482"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1088/1475-7516/2021/11/052"
+                              target="_blank"
+                              rel="noreferrer"
+                              >JCAP</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2021</span>
+                          </span>
                         </li>
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2410.11941"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Cosmic neutrino background detection in the minimally extended Standard Model</a
-                          >
-                          <span class="clean-meta">JCAP · 2025</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Relic neutrinos at accelerator experiments</span
+                            >
+                            <span class="clean-authors"
+                              >Martin Bauer, Jack D. Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2104.12784"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1103/PhysRevD.104.083039"
+                              target="_blank"
+                              rel="noreferrer"
+                              >Phys. Rev. D</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2021</span>
+                          </span>
                         </li>
                       </ul>
                     </div>
@@ -290,12 +396,25 @@
                   data-tab-panel="topic-atoms"
                 >
                   <figure class="topic-banner topic-banner-atoms">
-                    <div class="topic-banner-copy">
-                      <span class="slot-label">Atoms and molecules</span>
-                      <p>
-                        Atomic and molecular response, hydrogen amplitudes, and
-                        form factors for light dark matter searches.
-                      </p>
+                    <div class="topic-banner-nav">
+                      <button
+                        class="topic-switch topic-switch-prev"
+                        type="button"
+                        data-activate-tab="topic-relic"
+                        aria-label="Show relic neutrino searches"
+                      >
+                        <span class="topic-switch-arrow">&lt;</span>
+                        <span class="topic-switch-text">Relic neutrino searches</span>
+                      </button>
+                      <button
+                        class="topic-switch topic-switch-next"
+                        type="button"
+                        data-activate-tab="topic-pheno"
+                        aria-label="Show dark matter and neutrino phenomenology"
+                      >
+                        <span class="topic-switch-text">DM and neutrino pheno</span>
+                        <span class="topic-switch-arrow">&gt;</span>
+                      </button>
                     </div>
                   </figure>
 
@@ -303,15 +422,21 @@
                     <div class="topic-copy">
                       <h3>Atoms and molecules as light dark matter detectors</h3>
                       <p class="body-copy">
-                        More recently, I have been working on atomic and
-                        molecular targets for light dark matter detection. This
-                        includes both the phenomenology itself and the numerical
-                        machinery needed to compute the relevant response
-                        functions with enough speed and precision to be useful.
+                        More recently, I have been working on using atoms and molecules as targets for light dark matter and neutrino detection. These systems typically feature transitions from μeV to eV energies. Throguh scattering, these transitions are sensitive to MeV-mass dark matter, pushing well beyond current WIMP searches, whilst absorption processes let us search for ultralight dark matter. These systems are also symmetry-rich, allowing us to probe the microscopic nature of the operators that mediate the interactions.
                       </p>
                       <p class="body-copy">
-                        That effort is what sits behind both the hydrogen work
-                        in CINCO and the more recent SCarFFF code.
+                        Molecules are particular interesting due to their enormous combinatorics, which make almost any transition available in principle. The challenge is figuring out which targets are actually useful and accurately predicting their properties, which is notoriously challenging for multi-electron systems. My research focuses on using machine learning to find promising molecular targets, and on developing the formalism and numerical methods required to compute their properties at scale.
+                      </p>
+                      <p class="body-copy">
+                        Below you will find some of the work I have done in
+                        this area. You can find the related code that I have
+                        written: CINCO for atomic transitions, and SCarFFF molecular form factors and rates, on the
+                        <a
+                          class="text-link"
+                          href="#panel-software"
+                          data-open-tab="page-software"
+                          >software page</a
+                        >.
                       </p>
                     </div>
 
@@ -319,24 +444,84 @@
                       <p class="mini-label">Papers</p>
                       <ul class="clean-list">
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2407.12913"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Generalised hydrogen interactions with CINCO: a window to new physics</a
-                          >
-                          <span class="clean-meta">JHEP · 2024</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >A Numerical Method for the Efficient Calculation
+                              of Scattering Form Factors</span
+                            >
+                            <span class="clean-authors"
+                              >Carlos Blanco, Benjamin Lillard, Jack D.
+                              Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2512.18010"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>Preprint</span>
+                            <span class="clean-meta-sep">·</span>
+                            <span>2025</span>
+                          </span>
                         </li>
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2512.18010"
-                            target="_blank"
-                            rel="noreferrer"
-                            >A Numerical Method for the Efficient Calculation of Scattering Form Factors</a
-                          >
-                          <span class="clean-meta">Preprint · 2025</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Dark matter pair absorption</span
+                            >
+                            <span class="clean-authors"
+                              >Martin Bauer, Javier Perez-Soler, Jack D.
+                              Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2507.14287"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>Preprint</span>
+                            <span class="clean-meta-sep">·</span>
+                            <span>2025</span>
+                          </span>
+                        </li>
+                        <li>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Generalised hydrogen interactions with CINCO: a
+                              window to new physics</span
+                            >
+                            <span class="clean-authors"
+                              >Martin Bauer, Javier Perez-Soler, Jack D.
+                              Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2407.12913"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1007/JHEP10(2024)176"
+                              target="_blank"
+                              rel="noreferrer"
+                              >JHEP</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2024</span>
+                          </span>
                         </li>
                       </ul>
                     </div>
@@ -351,12 +536,25 @@
                   data-tab-panel="topic-pheno"
                 >
                   <figure class="topic-banner topic-banner-pheno">
-                    <div class="topic-banner-copy">
-                      <span class="slot-label">DM and neutrino pheno</span>
-                      <p>
-                        Light dark matter, effective interactions, low-energy
-                        probes, and experiment-facing phenomenology.
-                      </p>
+                    <div class="topic-banner-nav">
+                      <button
+                        class="topic-switch topic-switch-prev"
+                        type="button"
+                        data-activate-tab="topic-atoms"
+                        aria-label="Show atoms and molecules research"
+                      >
+                        <span class="topic-switch-arrow">&lt;</span>
+                        <span class="topic-switch-text">Atoms and molecules</span>
+                      </button>
+                      <button
+                        class="topic-switch topic-switch-next"
+                        type="button"
+                        data-activate-tab="topic-relic"
+                        aria-label="Show relic neutrino searches"
+                      >
+                        <span class="topic-switch-text">Relic neutrino searches</span>
+                        <span class="topic-switch-arrow">&gt;</span>
+                      </button>
                     </div>
                   </figure>
 
@@ -364,16 +562,13 @@
                     <div class="topic-copy">
                       <h3>Dark matter and neutrino phenomenology</h3>
                       <p class="body-copy">
-                        A broader ongoing strand concerns dark matter and
-                        neutrino phenomenology more generally, especially light
-                        dark matter. This includes low-energy probes, effective
-                        interactions, beam constraints, and ways of connecting
-                        formal calculations to realistic searches.
+                        More broadly, my research concerns neutrino and dark matter phenomenology, especially light dark matter. Some examples of what I'm interested in include non-standard interactions, novel probes of new physics, especially involving quantum sensing, and precision early-universe simulations. 
                       </p>
                       <p class="body-copy">
-                        In practice this strand overlaps strongly with the other
-                        two, but it is the best home for work that is less
-                        target-specific and more generally phenomenological.
+                        However, the above list is far from exhaustive! I'm always interested in learning new things, so if you have any interesting projects in mind, feel free to get in touch.                      
+                      </p>
+                      <p class="body-copy">
+                        You can see some of the stuff that I've worked on below.
                       </p>
                     </div>
 
@@ -381,44 +576,65 @@
                       <p class="mini-label">Papers</p>
                       <ul class="clean-list">
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2304.06750"
-                            target="_blank"
-                            rel="noreferrer"
-                            >The dark Stodolsky effect</a
-                          >
-                          <span class="clean-meta">JCAP · 2023</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >Constraining neutrino charges at beam
+                              experiments</span
+                            >
+                            <span class="clean-authors"
+                              >Jack D. Shergold, Martin Spinrath</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2411.16859"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1103/PhysRevD.112.073006"
+                              target="_blank"
+                              rel="noreferrer"
+                              >Phys. Rev. D</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2025</span>
+                          </span>
                         </li>
                         <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2411.16859"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Constraining neutrino charges at beam experiments</a
-                          >
-                          <span class="clean-meta">Phys. Rev. D · 2025</span>
-                        </li>
-                        <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2507.14287"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Dark matter pair absorption</a
-                          >
-                          <span class="clean-meta">Preprint · 2025</span>
-                        </li>
-                        <li>
-                          <a
-                            class="clean-link"
-                            href="https://arxiv.org/abs/2410.11941"
-                            target="_blank"
-                            rel="noreferrer"
-                            >Cosmic neutrino background detection in the minimally extended Standard Model</a
-                          >
-                          <span class="clean-meta">JCAP · 2025</span>
+                          <div class="clean-entry">
+                            <span class="clean-title"
+                              >The dark Stodolsky effect: constraining
+                              effective dark matter operators with
+                              spin-dependent interactions</span
+                            >
+                            <span class="clean-authors"
+                              >Guillaume Rostagni, Jack D. Shergold</span
+                            >
+                          </div>
+                          <span class="clean-meta">
+                            <a
+                              class="clean-meta-link"
+                              href="https://arxiv.org/abs/2304.06750"
+                              target="_blank"
+                              rel="noreferrer"
+                              >arXiv</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <a
+                              class="clean-meta-link"
+                              href="https://doi.org/10.1088/1475-7516/2023/07/018"
+                              target="_blank"
+                              rel="noreferrer"
+                              >JCAP</a
+                            >
+                            <span class="clean-meta-sep">·</span>
+                            <span>2023</span>
+                          </span>
                         </li>
                       </ul>
                     </div>
@@ -436,15 +652,14 @@
             data-tab-panel="page-software"
           >
             <section class="software-intro">
-              <p class="kicker">Software</p>
-              <h2>Public code</h2>
+              <h2>Software</h2>
               <p class="body-copy">
                 Calculations are hard! Fortunately I write code so that you don't have to do them.
               </p>
             </section>
 
             <section class="software-list">
-              <article class="software-row">
+              <article class="software-row software-row-logo">
                 <div>
                   <h3>SCarFFF</h3>
                   <p class="body-copy">
@@ -452,9 +667,12 @@
                     computation of form factors for scattering on molecules.
                   </p>
                 </div>
-                <div class="software-meta-inline">
+                <div class="software-side">
+                  <figure class="software-logo software-logo-scarfff">
+                  <img src="assets/images/scarfff_logo.png" alt="SCarFFF logo" />
+                  </figure>
                   <a
-                    class="clean-link"
+                    class="clean-link software-side-link"
                     href="https://github.com/jdshergold/SCarFFF"
                     target="_blank"
                     rel="noreferrer"
@@ -463,30 +681,453 @@
                 </div>
               </article>
 
-              <article class="software-row">
+              <article class="software-row software-row-logo">
                 <div>
                   <h3>CINCO</h3>
                   <p class="body-copy">
-                    Fast and precise construction of hydrogen transition
-                    amplitudes, tied to the hydrogen work in
-                    <a
-                      class="clean-link"
-                      href="https://arxiv.org/abs/2407.12913"
-                      target="_blank"
-                      rel="noreferrer"
-                    >arXiv:2407.12913</a
-                    >.
+                    Code for the fast and precise computation of scattering amplitudes for dark-matter-induced transitions in hydrogenic ions.
                   </p>
                 </div>
-                <div class="software-meta-inline">
+                <div class="software-side">
+                  <figure class="software-logo">
+                    <img src="assets/images/cinco_logo.png" alt="CINCO logo" />
+                  </figure>
                   <a
-                    class="clean-link"
+                    class="clean-link software-side-link"
                     href="https://gitlab.com/JShergold/cinco"
                     target="_blank"
                     rel="noreferrer"
                     >Repository</a
                   >
                 </div>
+              </article>
+            </section>
+          </section>
+
+          <section
+            class="tab-panel main-panel"
+            id="panel-teaching"
+            role="tabpanel"
+            aria-labelledby="tab-page-teaching"
+            data-tab-panel="page-teaching"
+          >
+            <section class="outreach-intro">
+              <h2>Supervision, lectures, and talks</h2>
+              <p class="body-copy">
+                Here you can find details of my teaching and outreach activities, along with links to my talks. I'm always interested in sharing my research, so please feel free to get in touch! 
+              </p>
+            </section>
+
+            <section class="outreach-list">
+              <article class="outreach-section outreach-section-photo">
+                <div class="outreach-copy">
+                  <p class="mini-label">Students supervised</p>
+                  <h3>Javier Perez-Soler</h3>
+                  <p class="body-copy">
+                    I co-supervise Javier Perez-Soler together with Avelino
+                    Vicente. His research focuses on neutrino mass models and all
+                    things group theory. He is expected to finish in 2027.
+                  </p>
+                  <div class="outreach-links">
+                    <a
+                      class="text-link"
+                      href="https://inspirehep.net/authors/2808918"
+                      target="_blank"
+                      rel="noreferrer"
+                      >INSPIRE profile</a
+                    >
+                  </div>
+                </div>
+                <figure class="outreach-photo outreach-photo-javi">
+                  <img src="assets/images/javi.jpg" alt="Javier Perez-Soler" />
+                </figure>
+              </article>
+
+              <article class="outreach-section">
+                <p class="mini-label">Lectures</p>
+                <h3>EuCAPT Astroneutrino Theory Workshop 2024, Prague</h3>
+                <p class="body-copy">
+                  I gave a three-part lecture series on cosmic neutrino
+                  background detectability at the EuCAPT Astroneutrino Theory
+                  Workshop in Prague, held from September 16 to September 27,
+                  2024.
+                </p>
+                <div class="outreach-links">
+                  <a
+                    class="text-link"
+                    href="https://indico.utef.cvut.cz/event/39/"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Workshop overview</a
+                  >
+                  <span class="outreach-label-inline">Lecture slides:</span>
+                  <a
+                    class="text-link"
+                    href="slides/eucapt/lecture1.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >I</a
+                  >
+                  <a
+                    class="text-link"
+                    href="slides/eucapt/lecture2.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >II</a
+                  >
+                  <a
+                    class="text-link"
+                    href="slides/eucapt/lecture3.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >III</a
+                  >
+                </div>
+              </article>
+
+              <article class="outreach-section outreach-section-photo">
+                <div class="outreach-copy">
+                  <p class="mini-label">Outreach</p>
+                  <h3>A tour through time</h3>
+                  <p class="body-copy">
+                    I gave an invited outreach talk to undergraduates at Durham
+                    univeristy, <em>A tour through time</em>, where I explained
+                    the intricate relationship between particle physics and
+                    cosmology: seemingly disconnected physics on the smallest
+                    and largest scales.
+                  </p>
+                  <div class="outreach-links">
+                    <span class="outreach-label-inline">Slides:</span>
+                    <a
+                      class="text-link"
+                      href="slides/ug_091122.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      >A tour through time</a
+                    >
+                  </div>
+                </div>
+                <figure class="outreach-photo outreach-photo-tour">
+                  <img src="assets/images/tour_through_time.png" alt="A tour through time" />
+                </figure>
+              </article>
+
+              <article class="outreach-section">
+                <p class="mini-label">Talks</p>
+                <ul class="clean-list talks-list">
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >From Atoms to Machine-Learned Molecules: Dark Matter
+                        and Neutrino Detection at Low
+                        Energies</span
+                      >
+                      <div class="talk-assets">
+                        <span class="outreach-label-inline">Versions:</span>
+                        <a
+                          class="text-link"
+                          href="slides/atoms_and_mols_updated.html"
+                          target="_blank"
+                          rel="noreferrer"
+                          >Updated</a
+                        >
+                        <a class="text-link" href="slides/atoms_and_mols.html" target="_blank" rel="noreferrer"
+                          >Original</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://conference.ippp.dur.ac.uk/event/1547/contributions/8813/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >Beyond WIMPS 2026</a
+                          >
+                          · March 2026</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://conference.ippp.dur.ac.uk/event/1543/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >IPPP Weekly Seminar</a
+                          >
+                          · February 2026</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Atomic and molecular transitions for neutrino and light
+                        dark matter detection</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/nottingham_281025.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://www.nottingham.ac.uk/physics/research/particle-cosmology/seminars/seminar-archive.aspx"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Nottingham particle cosmology
+                            seminar</a
+                          >
+                          · October 2025</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Dark matter detection with atomic spectroscopy</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/pascos220725.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://conference.ippp.dur.ac.uk/event/1371/contributions/8437/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >PASCOS 2025</a
+                          >
+                          · July 2025</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Hunting for the cosmic neutrino background</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/munich080525.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://users.ph.nat.tum.de/hep-seminars/seminars-past/seminars-past/seminars_SoSe25.html"
+                            target="_blank"
+                            rel="noreferrer"
+                            >Technische Universität München HEP seminar</a
+                          >
+                          · May 2025</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://indico.global/category/1405/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Liverpool theoretical physics
+                            seminar</a
+                          >
+                          · January 2025</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://warwick.ac.uk/fac/sci/physics/research/epp/events/seminars/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Warwick EPP seminar</a
+                          >
+                          · January 2025</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://www.youtube.com/watch?v=8_5H7TKkeLs"
+                            target="_blank"
+                            rel="noreferrer"
+                            >Latin American Webinar Series #173</a
+                          >
+                          · November 2024</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://sites.google.com/view/cosmo2024/parallel-sessions/dark-matter-neutrinos-and-astroparticle-physics-i"
+                            target="_blank"
+                            rel="noreferrer"
+                            >COSMO24</a
+                          >
+                          · October 2024</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://www.hep.phys.soton.ac.uk/events/B501"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Southampton high energy physics
+                            seminar</a
+                          >
+                          · May 2024</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://indico.ific.uv.es/event/7417/?print=1"
+                            target="_blank"
+                            rel="noreferrer"
+                            >Universidad de Valencia, IFIC seminar</a
+                          >
+                          · January 2024</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://indico.cern.ch/event/1234324/contributions/5712739/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >NuPhys2023</a
+                          >
+                          · December 2023</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://www.nottingham.ac.uk/physics/research/particle-cosmology/seminars/seminar-archive.aspx"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Nottingham particle cosmology
+                            seminar</a
+                          >
+                          · June 2023</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Generalised hydrogen interactions with CINCO</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/durham111024.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://durham-qlm.uk/seminars/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Durham quantum light and matter
+                            seminar</a
+                          >
+                          · October 2024</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Detecting the cosmic neutrino background</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/nudm_260922.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://indico.cern.ch/event/1189979/contributions/5008306/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >International Conference on Neutrinos and Dark
+                            Matter</a
+                          >
+                          · September 2022</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Relic neutrinos at accelerator experiments</span
+                      >
+                      <div class="talk-assets">
+                        <a class="text-link" href="slides/warwick_030222.pdf" target="_blank" rel="noreferrer"
+                          >Slides</a
+                        >
+                      </div>
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://warwick.ac.uk/fac/sci/physics/research/epp/events/seminars/warwick_030222.pdf"
+                            target="_blank"
+                            rel="noreferrer"
+                            >University of Warwick EPP seminar</a
+                          >
+                          · February 2022</span
+                        >
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://indico.cern.ch/event/1042648/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >CERN TH BSM Forum</a
+                          >
+                          · July 2021</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clean-entry">
+                      <span class="clean-title"
+                        >Introduction to the cosmic neutrino background</span
+                      >
+                      <details class="talk-places">
+                        <summary>Talks and seminars</summary>
+                        <span class="talk-location"
+                          ><a
+                            class="text-link"
+                            href="https://conference.ippp.dur.ac.uk/event/1065/contributions/5441/"
+                            target="_blank"
+                            rel="noreferrer"
+                            >Young Theorists Forum</a
+                          >
+                          · December 2021</span
+                        >
+                      </details>
+                    </div>
+                  </li>
+                </ul>
               </article>
             </section>
           </section>
