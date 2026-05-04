@@ -19,6 +19,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: clip;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
   font-family: "Avenir Next", "Segoe UI", sans-serif;
   line-height: 1.65;
   overscroll-behavior-y: none;
+  overflow-x: clip;
 }
 
 body::before {
