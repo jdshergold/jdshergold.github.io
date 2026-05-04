@@ -273,7 +273,7 @@ a {
 }
 
 .overview-copy h1 {
-  max-width: 10ch;
+  max-width: 24ch;
   font-size: clamp(2.2rem, 4vw, 3.7rem);
   line-height: 0.98;
 }
